@@ -1,0 +1,145 @@
+.addForm, .updateForm{
+/*    background-color: red;*/
+    width: 100%;
+    padding: 1rem 0rem;
+    
+}
+
+.add-data-item, .update-data-item{
+    border-bottom: var(--border-default);
+    padding-top: 1rem;
+}
+
+.form-select, .skill-input{
+    width: 100%;
+    height: 1.5rem;
+    font-size: var(--font-size-default);
+    color: var(--font-color-default);
+    padding: 0px 10px;
+}
+
+.form-show{
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+/*     background-color:pink; */
+}
+
+.switchInput{
+    background-color:blue;
+    cursor: pointer;
+    width: 100%;
+    position:absolute;
+    z-index: 5;
+    height:100%;
+}
+
+.form-row{
+    padding: 0px;
+    display: flex;
+    justify-content: flex-start;
+    margin-top:10px;
+}
+
+.textFieldLabel{
+    width: 100%;
+    padding-left: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.textFieldInput{
+    width: 100%;
+}
+
+
+.updateModal{
+	max-height: 70vh;
+	overflow-Y: scroll;
+}
+
+.updateModal::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+.updateModal::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color-dark);
+/*  outline: 1px solid slategrey;*/
+}
+
+.updateModal::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+textarea.form-control{
+  height: 3rem;
+}
+
+
+.work-select{
+    margin-right: 1rem;
+}
+
+.form-startPeriod{
+    
+}
+
+.workPeriodlabel{
+    height: 1rem;
+    
+}
+
+.work-selects{
+    align-items: flex-start;
+    display: flex;
+    height: 3rem;
+    padding: 0px;
+}
+
+.form-delete{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.deleteBtn{
+    cursor:pointer;
+    width: 3rem;
+    height: 3rem;
+/*    background-color: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--icon-font-size-large);
+    color: var(--secondary-color)
+    
+}
+
+.deleteBtn:hover{
+    color:red;
+}
+
+.selectSkill-div, .ButtonSkill-div{
+	padding: 0px;
+}
+
+.input-group-prepend{
+	width: 8rem;
+}
+
+.input-group-text{
+	width:100%;
+}
+
+.input-group{
+	margin: 10px 0px;
+}
+
+.updateModal{
+    padding:0;
+
+}
+
+.update-data-item{
+    padding: 1rem 1.5rem 0 1.5rem;
+}

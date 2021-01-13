@@ -1,0 +1,396 @@
+@charset "ISO-8859-1";
+
+.newItem{
+	display:none;
+}
+
+.row{
+    padding: 0;
+}
+
+.content-wrapper{
+/*    background-color: green;*/
+    margin: 0px;
+    min-height: 100vh;
+    align-items: flex-start;
+    padding: 0px;
+}
+
+.contentBar{
+/*    background-color: olive;*/
+    padding: 0px;
+
+}
+
+
+
+
+.content{
+/*    background-color: red;*/
+    height: auto;
+    display: flex;
+    padding: 0rem 1rem;
+    align-self: flex-start;
+}
+
+.content-head-wrapper{
+    background-color: white;
+    height: auto;
+    position: sticky;
+    top: 55px;
+    padding-top: 2rem;
+    z-index: 1;
+}
+
+.content div{
+    display: flex;
+    align-items: center;
+}
+
+.content-adminHead{
+    display:flex;
+    width: 100%;
+    height: auto;
+/*    background-color: aqua;*/
+    flex-direction: row;
+    position: sticky;
+    padding: 10px 0px;
+    top: 90px;
+    border: var(--border-default);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 0px 1.5px var(--secondary-color);
+
+}
+
+.content-adminHead-Title{
+    color: var(--font-color-default);
+}
+
+.content-userHead-Button{
+    display: flex;
+    justify-content: flex-end;
+/*    background-color: antiquewhite;*/
+}
+
+
+
+/*=======================*/
+
+.sideBar-right{
+/*    background-color: purple;*/
+    position: sticky;
+    max-width: 350px;
+    height: 30vh;
+    top:90px;
+    display: flex;
+    align-self: flex-start;
+    padding:0px 1rem;
+}
+
+
+
+.sideBar{
+    background-color: blue;
+    height: 300px;
+}
+
+
+
+/*=====================*/
+
+
+.sideBar-left{
+    background-color: var(--primary-color-dark);
+    position: fixed;
+    height: 100vh;
+/*    width: 20rem;*/
+    z-index: 2;
+    min-width: 12rem;
+    max-width: 12rem;
+
+}
+
+
+
+.sideBar, .sideBar-left{
+    min-width: 12rem;
+    max-width: 12rem;
+}
+
+.card-body, .card-header{
+    padding: 0;
+}
+
+.collapseLink, .collapseHead{
+    width: 100%;
+    height: 3rem;
+/*    background-color: blue;*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1.5rem;
+}
+
+.collapseLink{
+    color: var(--secondary-color-light)
+}
+.collapseHead{
+    color: var(--font-color-default);  
+    background-color: var(--secondary-color-light);
+    
+}
+
+
+/*=====================*/
+
+.sideBarFilter{
+    max-width: 16rem;
+    background-color: var(--primary-color-darker);
+    min-height: 100%;
+    padding: 2rem 0;
+/*    border: 2px solid black;*/
+   position: sticky;
+      top:3.5rem;
+}
+
+
+
+.sideBarFilter> .sideBarFilterContent{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filter-Content{
+    overflow-y: auto;
+    max-height:95vh;  
+}
+
+.filter-Content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+.filter-Content::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color-dark);
+/*  outline: 1px solid slategrey;*/
+}
+
+.filter-Content::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.filter-Title{
+    color: var(--font-color-light);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.filterInputText, .filterInputSelect, .filterInputText:focus, .filterInputSelect:focus{
+    background-color: var(--primary-color-superdark);
+    border: none;
+    height: 1.5rem;
+    color: var(--font-color-light);
+    font-size: var(--font-size-default);
+    padding: 0 0.5rem;
+    margin: 0.2rem 0;
+    box-shadow:inset 0 2px 2px 1px #042827;
+}
+
+.filterLabel{
+    padding: 0;
+    margin: 0.5rem 0;
+    color: var(--font-color-light);
+}
+
+.filterBtn{
+    width: 100%;
+    height: 2rem;
+    padding: 0 0.5rem;
+    font-size: var(--font-size-default);
+    margin: 1rem 0;
+}
+.filterToggleDiv{
+    height: 100%;
+/*    background-color: pink;*/
+    display: flex;
+    font-size: var(--font-size-large);
+    color: var(--secondary-color)
+    
+}
+
+.filterShow{
+	position:fixed;
+	z-index:3;
+}
+
+/*=======================*/
+
+.contentBar> .row{
+/*    background-color: pink;*/
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.upperBar{
+    background-color: black;
+    z-index:2;
+    padding: 0;
+    position:sticky;
+    top:3.5rem;
+}
+
+.upperBar .collapseHead{
+    justify-content: center;
+}
+.card{
+    border: none;
+    border-radius: 0;
+}
+
+#upperCollapse{
+    padding: 0;
+    
+}
+
+.upperCollapse-content{
+    padding: 0;   
+    margin: 0;
+    
+}
+
+.upperCollapse-content div{
+    position: absolute;
+    width:100%;
+}
+.card-body{
+    background-color: var(--primary-color-dark);
+}
+    
+/*==========================================*/
+
+.adminBtn{
+    height: 2rem;
+    padding: 0rem 1rem;
+    font-size: var(--font-size-default);
+    margin: 0 0.5rem;
+    background-color: var(--primary-color-darker);
+    border-radius: 20px
+}
+/*================================*/
+table{
+    table-layout: fixed;
+    color:var(--font-color-default);
+    width: 100%;
+    background-color:white;
+    
+}
+
+.tableHead{
+    margin-top:3rem;
+    background-color: var(--primary-color);
+    border-radius: 10px
+}
+.tableContent>thead>tr{
+    height: 0.5rem;
+}
+thead{
+    position: relative;
+}
+
+
+
+
+
+td > div {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+}
+
+td>input{
+    width:100%;
+    border:none;
+        border-radius: 5px;
+}
+td>input.is-invalid{
+    border:1px solid red;
+}
+
+td>input:focus{
+    width:100%;
+}
+td>input:focus.is-invalid{
+    border:2px solid red;
+}
+
+
+tr{
+    height: 2rem;
+    max-height: 1rem;
+}
+
+.newdataItem{
+   font-weight: 700;
+}
+
+.dataItem:hover{
+    background-color:var(--primary-color-superlight);
+}
+
+
+
+.settingBtn{
+    color: var(--secondary-color);
+}
+
+.dropdown-menu{
+    width: 2rem;
+    font-size: var(--font-size-default)
+}
+/*=========================*/
+
+.seemore, .nomore{
+	position: relative;
+	margin: auto;
+	bottom: 0px;
+	padding: 20px 0px;
+}
+
+.spinner-grow{
+    width: 5px;
+    height: 5px;
+    margin:2px;
+}
+
+
+.nomore{
+	display:none;
+	color: var(--secondary-color);
+}
+
+
+/*================================================*/
+.adminModal{
+    padding: 1rem
+}
+
+.adminModal input,.adminModal textarea {
+    font-size: var(--font-size-default);
+}
+
+.adminModalBtn{
+    height: 2rem;
+    padding: 0 1rem;
+    background-color: var(--primary-color-darker);
+    border-radius: 20px;
+    font-size: var(--font-size-default);
+}
+
+.adminModal >p {
+    margin: 0;
+}

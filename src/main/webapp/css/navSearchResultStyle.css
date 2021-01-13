@@ -1,0 +1,81 @@
+.mynav-search{
+/*    background-color: green;*/
+    position: relative;
+    width: 100%;
+    max-width: 300px;   
+}
+.mynav-input-search{ 
+    border-radius: 20px;
+    font-size: var(--font-size-default);
+
+}
+.mynav-input-search:focus{
+	box-shadow:none;
+}
+
+.mynav-search-dropdown{
+	min-width: 200px;
+	width:100%;
+	background:white;
+	text-decoration: none;
+	border-radius: 5px;
+    position:absolute;
+    top: 35px;
+    left: 0rem;
+    padding: none;
+    border: 1px solid var(--primary-color-light);
+	display:none; 
+}
+
+.mynav-search-user{
+    display:flex;
+    width:100%;
+    height: 2rem;
+    align-items: center;
+    padding: 0px 10px;
+    margin: 0px;
+    border-bottom: 2px solid #f0f0f0;
+    font-size: var(--font-size-default);
+/*    background-color: aqua;*/
+
+}
+.mynav-search-user .noresult{
+	color: grey;
+	font-weight: 300;
+	font-style:italic;
+}
+
+.mynav-search-user .fullName{
+	color: #000000;
+    font-weight: 600;
+    overflow:hidden;
+    font-style: bold;
+/*     background-color:yellow; */
+    width: 100%;
+    height: 100%;
+    display:flex;
+    align-items:center;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.mynav-search-user .showmore{
+	color: #0080ff;
+	font-weight: 300;
+}
+
+.mynav-search-user:hover{
+	background-color:aliceblue;
+}
+
+.mynav-search-user .selected{
+	background-color:aliceblue;
+}
+
+.circle{
+	width: 20px;
+	height:20px;
+	background-color: white;
+	border-radius: 100%;
+	margin-right: 10px;
+}

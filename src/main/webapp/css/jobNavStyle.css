@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+
+.jobNavbar{
+    width: 100%;
+    background-color: white;
+    height: 3rem;
+    position:sticky;
+    top:3.5rem;
+    z-index: 3;
+    border-bottom: var(--border-default);
+}
+
+.jobNavbarlinks{
+    width: 100%;
+/*     background-color:pink; */
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.jobNavbarlinks>div{
+    width: 8rem;
+/*     background-color:yellow; */
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+
+.jobNavbarLink{
+    height:100%;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: var(--font-size-medium);
+    color: var(--font-color-default);
+}
+
+
+
+.jobNavbarlinks>div.active::after{
+    content: "";
+    width: 100%;
+    height:0.3rem;
+    background-color: var(--primary-color);
+
+}
+
+.jobNavbarlinks>div:not(.active):hover{
+    background-color: var(--secondary-color-light);
+
+}

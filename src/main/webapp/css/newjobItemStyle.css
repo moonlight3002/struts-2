@@ -1,0 +1,55 @@
+.content-job-item{
+    background-color: white;
+    margin-top: 1rem;
+    padding: 0.5rem 0rem;
+    border: var(--border-default);
+    border-radius: 10px;
+    color: var(--font-color-default);
+}
+
+.content-job-item:hover{
+    background-color: var(--primary-color-superlight);
+    color: var(--font-color-default);
+}
+
+.job-position{
+    font-size: var(--font-size-large);
+    font-weight: 500;
+}
+
+.job-company{
+    font-size: var(--font-size-medium);
+}
+
+.content-job-item i{
+    width: 20px;
+    padding-right: 0.5rem;
+}
+
+.job-location{
+    font-size: 
+}
+
+.job-place-hours{
+    display: flex;
+}
+
+.job-place{
+    margin-right: 1rem;
+}
+
+.job-hours{
+    
+}
+
+.job-created{
+    justify-content: flex-end;
+    font-size: var(--font-size-small);
+    color: var(--font-color-secondary);
+    font-style: italic;
+}
+
+
+.job-time{
+  padding:0;
+}

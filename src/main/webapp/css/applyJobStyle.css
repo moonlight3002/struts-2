@@ -1,0 +1,140 @@
+.content-wrapper{
+
+/*    background-color: green; */
+
+    
+}
+
+.content-right{
+    height: 100%;
+/*    background-color: blue;*/
+}
+
+.content-left{
+/*    background: red;*/
+        padding: 0;
+}
+
+.content-left-blank-space{
+/*    background-color: pink;*/
+}
+
+.submissionFormDiv{
+    padding: 1rem;
+/*    background-color: pink; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 85vh;
+    overflow:auto;
+}
+.submissionFormDiv::-webkit-scrollbar-track {
+}
+ 
+.submissionFormDiv::-webkit-scrollbar-thumb {
+  background-color: white;
+/*  outline: 1px solid slategrey;*/
+}
+
+.submissionFormDiv::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.submissionFormDiv >form> div{
+    padding: 0;
+    height: auto;
+/*    background-color: pink; */
+    margin: 0rem 0rem;
+
+}
+
+.submissionFormDiv >form> div > div{
+
+    margin: 0.2rem 0;
+}
+
+.submissionFormDiv >form> input:not(input[type=submit]){
+    padding: 0;
+    font-size: var(--fon-size-default);
+    height: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.submissionFormDiv >form .phone-input{
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+
+.phone-input p{
+    margin:0;
+    padding-right: 0.5rem;
+}
+.phone-input input{
+    width: 80%;
+    max-width:10rem;
+    height: 1.5rem;
+}
+
+.submissionFormDiv >form select{
+    padding: 0 0.2rem;
+    margin-right: 1rem;
+    width: 3.8rem;
+    height: 1.5rem;
+    font-size: var(--fon-size-default)
+}
+
+.submitDiv{
+    display: flex;
+    background-color: palegoldenrod;
+    margin: auto;
+    align-self: flex-end;
+}
+
+.form-control-plaintext{
+    font-weight: 600;
+}
+
+.submissionForm-Title{
+    text-align:center;
+}
+.company-div >div{
+    display:flex;
+    align-items:center;
+}
+.questions-title{
+    font-weight:600;
+    margin-top: 2rem;
+}
+
+.custom-file{
+    margin:1rem 0;
+}
+
+label{
+	display:flex;
+	align-items:center;
+}
+
+textarea.form-control, .form-input-text{
+	font-size: var(--font-size-default);
+}
+
+.submitBtn{
+    margin: 0 1rem;
+    height: 2rem;
+    border-radius:20px;
+    font-size: var(--font-size-default);
+    font-weight:500;
+    background-color:white;
+    border: 2px solid var(--primary-color-dark);
+    color: var(--font-color-default);
+
+}
+
+.submitBtn:hover{
+    border: 2px solid var(--primary-color);
+    background-color:white;
+    color: var(--primary-color);
+}

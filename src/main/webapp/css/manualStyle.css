@@ -1,0 +1,309 @@
+body{
+    width: 100%;
+    height: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.8));
+}
+.backTop{
+    position: fixed;
+    bottom: 2rem;
+    right:2rem;
+    z-index: 5;
+    cursor: pointer;
+    display:none;
+}
+.backTop i:hover{
+    opacity: 0.8; 
+    color: var(--secondary-color);
+}
+.backTop i{
+    font-size: 3rem;
+    color: grey;
+    opacity: 0.5 
+}
+
+.about-logo{
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    z-index: 5;
+    width: 5rem;
+    height: 5rem;
+}
+.about-logo img{
+    width:100%;
+    height: auto;
+}
+.nav{
+    position: absolute;
+    z-index: 5;
+    right: 2rem;
+}
+.nav a{
+    display: flex;
+    width:10rem;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-large);
+    color: var(--font-color-default);
+    
+}
+.nav a:hover{
+    color: var(--font-color-light);
+}
+.content-wrapper{
+    background-color: white;
+    min-height: 100vh;
+    width: 100%;
+    
+}
+.content-header, .content-manual-image, .content-privacy-image{
+    position: relative;
+    width:100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+.content-header{
+    background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url(/ID0420FF19OWidya/assets/about/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+/*    clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 50% 100%, 50% 100%, 0 80%, 0% 20%);*/
+}
+
+.content-about{
+    background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8));
+    padding: 5rem 3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: var(--font-color-light);
+    text-align: center;
+    clip-path: polygon(32% 0, 71% 0, 100% -30%, 100% 100%, 70% 100%, 30% 100%, 0 100%, 0 -30%);
+}
+.content-about p{
+    font-size: var(--font-size-medium);
+}
+
+.content-about .quote{
+    margin: 8rem 0 0 0;
+    font-style: italic;
+    font-size: var(--font-size-default);
+}
+
+.content-manual-image{
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(/ID0420FF19OWidya/assets/about/manual.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+
+}
+.content-manual{
+    padding-bottom: 5rem
+}
+.content-wrapper h1{
+    color: white;   
+}
+
+.content-privacy-image{
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(/ID0420FF19OWidya/assets/about/privacy.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+/*    clip-path: polygon(0 0, 100% 0, 100% 30%, 100% 80%, 50% 100%, 50% 100%, 0 80%, 0% 30%);*/
+}
+
+.manual-Title{
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    align-items: center;
+    margin-top:3rem;
+}
+.manual-Title h3{
+    position: relative;
+}
+.manual-Title h3:after{
+    content:"";
+    height: 0.3rem;
+    background-color: gold;
+    width: 100%;
+    position: absolute;
+    bottom: -1rem;
+    left: 0px;
+}
+
+.manual-item{
+    background-color: white;
+    margin: 2rem;
+    height: 15rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 2px 2px var(--secondary-color);
+    min-width: 250px;
+    max-width: 250px;
+}
+
+
+.icon-div{
+    width: 5.5rem;
+    height: 80%;
+/*    background-color: white;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon{
+    width: 100%;
+    height: auto;
+}
+
+path, circle{
+    fill:var(--primary-color);
+}
+
+.item-name{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color-dark);
+    font-weight: 600;
+    font-size: var(--font-size-medium);
+    border-radius: 10px;
+    height: 3.5rem;
+    margin: 0rem 1rem 1rem 1rem;
+    cursor:pointer;
+}
+.item-name p{
+    margin: 0px;
+    padding: 0px;
+}
+
+.manual-item:hover, .manual-item:hover path, .manual-item:hover circle{
+    background-color: var(--primary-color-light);
+    box-shadow: 2px 2px 2px 2px var(--secondary-color-dark);
+    fill: var(--primary-color-dark);
+}
+
+.manual-item:hover .item-name{
+    background-color: white;
+    color: var(--primary-color-dark);
+}
+
+/*==========*/
+.manual-body, .modal-content{
+    height: auto;
+    background-color: white;
+    border-radius: 30px;
+    justify-content: center;
+    box-shadow: 2px 2px 2px 0.5px var(--secondary-color);
+    border: none;
+}
+
+.modal-backdrop {
+    background-color:black;
+    opacity: 0.7 !important;
+}
+
+.manual-paging{
+    width: 110%;
+    position: absolute;
+    bottom: 0rem;
+    height: 2rem;
+    padding: 0.4rem;
+    z-index: 5;
+    display: flex;
+    justify-content: flex-end;
+}
+.manual-paging>p{
+    width: 95%;
+    height: 100%;
+    background-color: white;
+}
+.button-div{
+/*    background-color: yellow;*/
+    height: 5%;
+}
+.carousel-div{
+/*    background-color: pink;*/
+    height: 80%;
+    
+}
+.carousel-div >div, .carousel-inner{
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-item{
+    width:100%;
+    height: 100%;
+/*    background-color: yellow;*/
+}
+.carousel-item>div{
+    color: var(--secondary-color-dark);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 2rem;
+    
+}
+
+.carousel-item img{
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+    padding: 0.2rem;
+/*    box-shadow: -2px -2px 2px 2px grey inset;*/
+}
+
+.carousel-control-prev{
+/*    background-color: pink;*/
+    position: absolute;
+    left: -3rem;
+    width: 3rem;
+}
+.carousel-control-next{
+    position: absolute;
+    right: -3rem;
+/*    background-color: pink;*/
+    width: 3rem;
+}
+
+
+
+.carousel-control-prev, .carousel-control-next{
+    color: var(--primary-color);
+    font-size: 30px;
+}
+.carousel-control-prev:hover, .carousel-control-next:hover{
+    color: var(--primary-color-dark);
+    font-size: 30px;
+}
+
+.carousel-indicators{
+/*    background-color: pink;*/
+    height: 2rem;
+    padding: 0.3rem;
+    margin: 0px;
+}
+
+.carousel-indicators li{
+    width:0.5rem;
+    height: 0.5rem;
+    border-radius: 100%;
+    background-color: var(--secondary-color);
+}

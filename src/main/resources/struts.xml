@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="global" />
+<!--     <constant name="struts.action.extension" value=""  /> -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/> 
+    <constant name="struts.multipart.maxSize" value="5000000" />
+<!-- 	================================ -->
+	<package name="adminPages"  namespace="/admin" extends="struts-default, json-default"> 
+		<interceptors>
+	 	  		<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			    <interceptor name="credentialCheck" class="com.ID0420FF19OWidya.interceptors.AdminInterceptor"/>
+				<interceptor-stack name="newStack">
+				    	<interceptor-ref name="sessionCheck"/>
+				    	<interceptor-ref name="credentialCheck"/> 
+				        <interceptor-ref name="defaultStack"/>
+				        <interceptor-ref name="json"/> 
+				</interceptor-stack>
+	 	 </interceptors>
+    
+   		<default-interceptor-ref name="newStack"/>
+		<action name="getUsersList" class="com.ID0420FF19OWidya.actions.AdminUserAction" method="adminGetUserList"> 
+			<result name="success" type="json">
+				<param name="root">users</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		
+		<action name="updateUserColumn" class="com.ID0420FF19OWidya.actions.AdminUserAction" method="adminUpdateUserColumn"> 
+			<result name="success" type="json">
+				<param name="root">updateResult</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+ 		
+ 		<action name="deactivateUser" class="com.ID0420FF19OWidya.actions.AdminUserAction" method="adminDeactivateUsers"> 
+			<result name="success" type="json">
+				<param name="root">updateResult</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		
+		<action name="sendBulkEmail" class="com.ID0420FF19OWidya.actions.AdminUserAction" method="sendBulkMails"> 
+			<result name="success" type="json">
+				<param name="root">emailResult</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		
+		
+		<action name="feedback"> 
+			<result name="success">/WEB-INF/adminDashboardFeedback.jsp</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		
+		<action name="technology"> 
+			<result name="success">/WEB-INF/adminDashboardTechnology.jsp</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+	</package>
+	
+	<package name="adminfeedback"  namespace="/admin/feedback" extends="struts-default, json-default"> 
+		<interceptors>
+	 	  		<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			    <interceptor name="credentialCheck" class="com.ID0420FF19OWidya.interceptors.AdminInterceptor"/>
+				<interceptor-stack name="newStack"> 
+				    	<interceptor-ref name="sessionCheck"/>
+				    	<interceptor-ref name="credentialCheck"/> 
+				        <interceptor-ref name="defaultStack"/>
+				        <interceptor-ref name="json"> <param name="enableSMD">true</param> </interceptor-ref>  
+				</interceptor-stack>
+	 	 </interceptors>
+		<default-interceptor-ref name="newStack"/>
+		<action name="getFeedbackList" class="com.ID0420FF19OWidya.actions.FeedbackAction" method="getFeedbackList"> 
+			<result name="success" type="json">
+				<param name="root">feeds</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		
+		<action name="viewFeedback" class="com.ID0420FF19OWidya.actions.FeedbackAction" method="viewFeedback"> 
+			<result name="success" type="json">
+				<param name="root">feedback</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		
+		<action name="solveFeedback" class="com.ID0420FF19OWidya.actions.FeedbackAction" method="solveFeedback"> 
+			<result name="success" type="json">
+				<param name="root">updateResult</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		<action name="deleteFeedback" class="com.ID0420FF19OWidya.actions.FeedbackAction" method="deleteFeedback"> 
+			<result name="success" type="json">
+				<param name="root">deleteResult</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+	</package>
+	
+	<package name="tech"  namespace="/admin/technology" extends="struts-default, json-default"> 
+		<interceptors>
+	 	  		<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			    <interceptor name="credentialCheck" class="com.ID0420FF19OWidya.interceptors.AdminInterceptor"/>
+				<interceptor-stack name="newStack"> 
+				    	<interceptor-ref name="sessionCheck"/>
+				    	<interceptor-ref name="credentialCheck"/> 
+				        <interceptor-ref name="defaultStack"/>
+				        <interceptor-ref name="json"> <param name="enableSMD">true</param> </interceptor-ref>  
+				</interceptor-stack>
+	 	 </interceptors>
+		<default-interceptor-ref name="newStack"/>
+		<action name="adminGetTechnologyList" class="com.ID0420FF19OWidya.actions.AdminModifyTechnologyAction" method="adminGetTechnologyList"> 
+			<result name="success" type="json">
+				<param name="root">technologies</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		<action name="adminUpdateTechnology" class="com.ID0420FF19OWidya.actions.AdminModifyTechnologyAction" method="adminUpdateTechnology"> 
+			<result name="success" type="json">
+				<param name="root">updateResult</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		<action name="adminDeleteTechnology" class="com.ID0420FF19OWidya.actions.AdminModifyTechnologyAction" method="adminDeleteTechnology"> 
+			<result name="success" type="json">
+				<param name="root">deleteResult</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		
+		<action name="adminAddTechnology" class="com.ID0420FF19OWidya.actions.AdminModifyTechnologyAction" method="adminAddTechnology"> 
+			<result name="success" type="json">
+				<param name="root">addResult</param>
+			</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+		
+		
+	</package>
+
+	<package name="adminPage"  extends="struts-default"> 
+		<interceptors>
+	 	  		<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			    <interceptor name="credentialCheck" class="com.ID0420FF19OWidya.interceptors.AdminInterceptor"/>
+				<interceptor-stack name="newStack">  
+				    	<interceptor-ref name="sessionCheck"/>
+				    	<interceptor-ref name="credentialCheck"/> 
+				        <interceptor-ref name="defaultStack"/>
+				</interceptor-stack>
+	 	 </interceptors>
+    
+   		<default-interceptor-ref name="newStack"/>
+   		
+   		<action name="admin"> 
+			<result name="success">/WEB-INF/adminDashboard.jsp</result>
+			<result name="sessionInvalid" type="redirect">home</result>
+			<result name="credentialInvalid" type="redirect">home</result>
+		</action>
+
+	</package>
+	<package name="aboutusPage" extends="struts-default">
+		<action name="about"> 
+			<result name="success">/WEB-INF/about.jsp</result>
+		</action>
+		<action name="privacyPolicy"> 
+			<result name="success">/WEB-INF/about.jsp</result>
+		</action>
+		
+	</package> 
+	<package name="default" extends="struts-default">
+	  	<interceptors>
+	 	  		<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			    
+				<interceptor-stack name="newStack">  
+				    	<interceptor-ref name="sessionCheck"/>
+				        <interceptor-ref name="defaultStack"/>
+				</interceptor-stack>
+	 	 </interceptors>
+    
+   		<default-interceptor-ref name="newStack"/>
+   		
+   		<global-results>
+			<result name="sessionInvalid" type="redirect">home</result>
+		</global-results>  
+		
+<!-- 		<action name="/*">
+			<result type="redirect">home</result>
+		</action>  -->
+<!-- 		if session not null, then invoke, if null, then sessionInvalid -->
+		<action name="home"> 
+			<result name="success">/WEB-INF/main.jsp</result>
+			<result name="sessionInvalid">/WEB-INF/index.jsp</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		
+<!-- 		<action name="forgetPassword"> 
+			<interceptor-ref name="newStack"/>
+			<result name="sessionInvalid">/WEB-INF/forgetPassword.jsp</result>
+			<result type="redirect">home</result>
+		</action> -->
+		
+	</package> 
+	
+    <package name="registration" extends="struts-default">
+    	<interceptors>
+	 	  		<interceptor name="sessionValidCheck" class="com.ID0420FF19OWidya.interceptors.SessionValidInterceptor"/>
+				<interceptor-stack name="newStack">  
+				    	<interceptor-ref name="sessionValidCheck"/>
+				        <interceptor-ref name="defaultStack"/>
+				</interceptor-stack>
+	 	 </interceptors>
+    
+   		<default-interceptor-ref name="newStack"/>
+ 	 	<action name="register" class="com.ID0420FF19OWidya.actions.RegisterAction" method="execute">
+ 	 		<param name="category">register</param>
+ 	 		<result name="input">/WEB-INF/index.jsp</result>
+ 	 		<result name="success">/WEB-INF/registerSuccess.jsp</result>
+ 	 		<result name="error">/WEB-INF/pageNotFound.jsp</result>
+ 	 		<result name="sessionValid" type="redirect">home</result>
+ 	 	</action>
+	</package>
+	
+	<package name="login" extends="struts-default"> 
+		<interceptors>
+	 	  		<interceptor name="sessionValidCheck" class="com.ID0420FF19OWidya.interceptors.SessionValidInterceptor"/>
+			    
+				<interceptor-stack name="newStack">  
+				    	<interceptor-ref name="sessionValidCheck"/>
+				        <interceptor-ref name="defaultStack"/>
+				</interceptor-stack>
+	 	 </interceptors>
+    
+   		<default-interceptor-ref name="newStack"/>
+ 	 	<action name="login" class="com.ID0420FF19OWidya.actions.LoginAction" method="execute">
+ 	 		<result name="input">/WEB-INF/index.jsp</result>
+ 	 		<result name="success, sessionValid" type="redirect">home</result>
+ 	 		<result name="error">/WEB-INF/pageNotFound.jsp</result>
+ 	 	</action>
+	</package>
+	
+	<package name="password" extends="struts-default,json-default"> 
+		<interceptors> 
+			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+			<interceptor name="sessionValidCheck" class="com.ID0420FF19OWidya.interceptors.SessionValidInterceptor"/>
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="sessionValidCheck"/> 
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"/> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+		<action name="forgetPassword" class="com.ID0420FF19OWidya.actions.RetrievePasswordAction" method="execute"> 
+				<result name="sessionValid, none"></result>
+				<result name="success" type="json">
+					<param name="root">result</param>
+				</result>
+		</action>
+	</package>
+	
+	
+	<package name="verification" namespace="/register" extends="struts-default">
+ 	 	<action name="verification" class="com.ID0420FF19OWidya.actions.RegisterAction" method="verification">
+ 	 		<param name="category">verification</param>
+ 	 		<result name="invalid">/WEB-INF/verificationFailed.jsp</result>
+ 	 		<result name="success">/WEB-INF/verificationSuccess.jsp</result>
+ 	 		<result name="error,input">/WEB-INF/pageNotFound.jsp</result>
+ 	 	</action>
+	</package>
+	
+	<package name="file"  extends="struts-default, json-default">
+		<interceptors>
+			<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/> 
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="sessionCheck"/> 
+				<interceptor-ref name="defaultStack"/>
+				 <interceptor-ref name="fileUpload">
+			     	<param name="maximumSize">1000000</param>
+			     	<param name="allowedTypes">
+                    image/png,image/gif,image/jpeg,image/pjpeg, image/jpg
+        			</param>
+				</interceptor-ref>
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+ 	 	<action name="getFile" class="com.ID0420FF19OWidya.actions.FileAction" method="getFile">
+ 	 		<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+  				<param name="inputName">inputStream</param>
+  			<!-- 	<param name="contentDisposition">filename="image.jpg"</param> -->
+  				<param name="bufferSize">1024</param>
+			</result>
+			<result name="none, sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="uploadProfilePicture" class="com.ID0420FF19OWidya.actions.FileAction" method="uploadProfilePicture">
+ 	 		<result name="success" type="json"></result>
+			<result name="none, sessionInvalid, error"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="uploadHeaderPicture" class="com.ID0420FF19OWidya.actions.FileAction" method="uploadHeaderPicture">
+ 	 		<result name="success" type="json"></result>
+			<result name="none, sessionInvalid, error"></result>
+ 	 	</action>
+	</package>
+	
+	<package name="search" extends="struts-default,json-default">
+	
+		<interceptors>
+			<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/> 
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="sessionCheck"/> 
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"> <param name="enableSMD">true</param> </interceptor-ref> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+		<global-results>
+			<result name="sessionInvalid" type="redirect">home</result>
+		</global-results>
+ 	 	<action name="quickSearch" class="com.ID0420FF19OWidya.actions.SearchAction" method="execute">
+ 	 		<result name="success" type="json"></result>
+			<result name="none, sessionInvalid" type="json"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="search" class="com.ID0420FF19OWidya.actions.SearchAction" method="searchUser">
+ 	 		<result name="success">/WEB-INF/search.jsp</result>
+ 	 		<result name="none"></result>
+			<result name="sessionInvalid">index.jsp</result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="searchMore" class="com.ID0420FF19OWidya.actions.SearchAction" method="searchUser">
+ 	 		<result name="success" type="json">
+ 	 		
+ 	 		<param name="root">userCollections</param>
+ 	 		</result>
+			<result name="sessionInvalid, none"></result>
+ 	 	</action>
+ 	 	
+	</package>
+	
+	<package name="getlocation" extends="struts-default, json-default">
+		<interceptors> 
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"> <param name="enableSMD">true</param> </interceptor-ref> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+ 	 	<action name="getCountry" class="com.ID0420FF19OWidya.actions.GetLocationAction" method="getCountryList">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">countries</param>
+ 	 		</result>
+ 	 	</action>
+ 	 	<action name="getCity" class="com.ID0420FF19OWidya.actions.GetLocationAction" method="getCityList">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">cities</param>
+ 	 		</result>
+ 	 	</action>
+	</package>
+	
+	
+	<package name="getnotification" extends="struts-default, json-default">
+		<interceptors> 
+			<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/> 
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="sessionCheck"/> 
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"> <param name="enableSMD">true</param> </interceptor-ref> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+ 	 	<action name="getNotifications" class="com.ID0420FF19OWidya.actions.GetNotificationAction" method="execute">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">notifications</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid, none"></result>
+ 	 	</action>
+	</package>
+	
+	
+	<package name="getJob" extends="struts-default, json-default">
+		<interceptors> 
+<!-- 			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/> -->
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"/> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+ 	 	<action name="getJobList" class="com.ID0420FF19OWidya.actions.GetJobAction" method="getJobList">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">jobLists</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="job" class="com.ID0420FF19OWidya.actions.ViewJobAction" method="execute">
+ 	 		<result name="success">/WEB-INF/jobBoard.jsp</result>
+ 	 	</action> 
+ 	 	
+
+ </package>
+ 
+ <package name="viewJob" namespace="/job" extends="struts-default, json-default">
+		<interceptors> 
+<!-- 			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/> -->
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"/> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+ 	 	
+ 	 	
+ 	 	<action name="view" class="com.ID0420FF19OWidya.actions.ViewJobAction" method="viewJob">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">job</param>
+ 	 		</result>
+ 	 	</action> 
+ 	 	</package>
+	
+	
+	<package name="modifyJob" namespace="/job" extends="struts-default, json-default">
+		<interceptors> 
+<!-- 			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/> -->
+			<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="sessionCheck"/>
+				<interceptor-ref name="defaultStack"/> 
+				<interceptor-ref name="json"/> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+ 	 	
+ 	 	
+ 	 	
+ 	 	<action name="apply" class="com.ID0420FF19OWidya.actions.ApplyJobAction" method="viewJobApplicationForm">
+ 	 		<result name="success" type="dispatcher">/WEB-INF/applyJob.jsp</result>
+ 	 		<result name="applicationexist">/WEB-INF/applicationSent.jsp</result>
+ 	 		<result name="invalidJobPost">/WEB-INF/errorPage.jsp</result>
+ 	 		<result name="sessionInvalid" type="redirect">home</result>
+ 	 	</action> 
+ 	 	
+ 	 	<action name="hire" class="com.ID0420FF19OWidya.actions.HiringAction" method="execute">
+<!-- 		 	 <interceptor-ref name="validation">
+		        <param name="excludeMethods">execute</param>
+		    </interceptor-ref> -->
+ 	 		<result name="success">/WEB-INF/postJobForm.jsp</result>
+ 	 		<result name="sessionInvalid" type="redirect">home</result>
+ 	 	</action> 
+ 	 	
+ 	 	<action name="posting" class="com.ID0420FF19OWidya.actions.HiringAction" method="postJob">
+ 	 		<result name="success" type="redirect">myJobPost</result>
+ 	 		<result name="input">/WEB-INF/postJobForm.jsp</result>
+ 	 		<result name="sessionInvalid" type="redirect">home</result>
+ 	 	</action> 
+ 	 	
+ 	 	<action name="myJobPost" class="com.ID0420FF19OWidya.actions.ViewMyJobAction" method="execute">
+ 	 		<result name="success">/WEB-INF/myJobPost.jsp</result>
+ 	 		<result name="sessionInvalid" type="redirect">home</result>
+ 	 	</action>
+ 	 	
+ 	 	
+ 	
+	</package>
+	
+	
+	<package name="myJobPost" namespace="/job/myJobPost" extends="struts-default, json-default">
+		<interceptors> 
+<!-- 			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/> -->
+			<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="sessionCheck"/> 
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"/> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+		
+		<action name="viewApplicantLists" class="com.ID0420FF19OWidya.actions.ViewMyJobAction" method="viewApplicantLists">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">applicantLists</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid, none"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="viewApplication" class="com.ID0420FF19OWidya.actions.ViewMyJobAction" method="viewApplication">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">jobApplication</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid, none"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="downloadAttachment" class="com.ID0420FF19OWidya.actions.ViewMyJobAction" method="downloadAttachment">
+ 	 		<result name="success" type="stream">
+				  <param name="contentType">application/octet-stream</param>
+				  <param name="inputName">inputStream</param>
+				  <param name="contentDisposition">attachment;filename="${jobApplication.attachment}"</param>
+				  <param name="bufferSize">1024</param>
+			</result>
+ 	 		<result name="sessionInvalid, none"></result>
+ 	 	</action>
+
+	</package>
+	
+		<package name="submitJob" namespace="/job/apply" extends="struts-default, json-default">
+		<interceptors> 
+<!-- 			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/> -->
+			<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="sessionCheck"/> 
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="fileUpload">
+			     	<param name="maximumSize">2000000</param>
+			     	<param name="allowedTypes">application/pdf</param>
+				</interceptor-ref>
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+ 	 	
+ 	 	<action name="submit" class="com.ID0420FF19OWidya.actions.ApplyJobAction" method="submitApplication">
+ 	 		<result name="success">/WEB-INF/applicationSent.jsp</result>
+ 	 		<result name="error, invalidJobPost">/WEB-INF/errorPage.jsp</result>
+ 	 		<result name="input">/WEB-INF/applyJob.jsp</result>
+ 	 		<result name="sessionInvalid">/index.jsp</result>
+ 	 	</action> 
+ 	
+	</package>
+	
+	
+	
+	
+	<package name="feedback" extends="struts-default, json-default">
+		<interceptors> 
+<!-- 			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/> -->
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"/> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+ 	 	<action name="sendFeedback" class="com.ID0420FF19OWidya.actions.FeedbackAction" method="sendFeedback">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">rowsAffected</param>
+ 	 		</result>
+ 	 	</action>
+	</package>
+   
+<!-- 	================================ -->
+
+	<package name="adminProfile" extends="struts-default, json-default">
+ 		<interceptors> 
+			<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			<interceptor name="credentialCheck" class="com.ID0420FF19OWidya.interceptors.AdminInterceptor"/>
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="sessionCheck"/> 
+				<interceptor-ref name="credentialCheck"/>
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"/> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/> 
+ 	 	
+ 	 	<action name="deleteEducationPermanently" class="com.ID0420FF19OWidya.actions.ProfileAction" method="deleteEducationPermanently">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">deleteResult</param>
+ 	 		</result>
+ 	 		<result name="credentialInvalid, sessionInvalid"></result>
+ 	 	</action>
+ 	 	<action name="deleteExperiencePermanently" class="com.ID0420FF19OWidya.actions.ProfileAction" method="deleteExperiencePermanently">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">deleteResult</param>
+ 	 		</result>
+ 	 		<result name="credentialInvalid, sessionInvalid"></result>
+ 	 	</action>
+ 	 	<action name="deleteSkillPermanently" class="com.ID0420FF19OWidya.actions.ProfileAction" method="deleteSkillPermanently">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">deleteResult</param>
+ 	 		</result>
+ 	 		<result name="credentialInvalid, sessionInvalid"></result>
+ 	 	</action>
+ 	 </package>
+ 	 
+ 	 
+	<package name="profile" extends="struts-default, json-default">
+ 		<interceptors> 
+			<interceptor name="sessionCheck" class="com.ID0420FF19OWidya.interceptors.SessionInterceptor"/>
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="sessionCheck"/> 
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"/> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/> 
+ 	 	<action name="*" class="com.ID0420FF19OWidya.actions.ProfileAction" method="viewProfile">
+ 	 		<param name="profileUserName">{1}</param>
+ 	 		<result name="successPrivate">/WEB-INF/profile.jsp</result>
+ 	 		<result name="successPublic">/WEB-INF/publicProfile.jsp</result>
+ 	 		<result name="sessionInvalid" type="redirect">home</result>
+ 	 		<result name="none"></result>
+ 	 		<result name="error">/WEB-INF/pageNotFound.jsp</result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="viewAllEducations" class="com.ID0420FF19OWidya.actions.ProfileAction" method="viewAllEducations">
+ 	 	
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">user</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="viewAllExperiences" class="com.ID0420FF19OWidya.actions.ProfileAction" method="viewAllExperiences">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">user</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="viewAllSkills" class="com.ID0420FF19OWidya.actions.ProfileAction" method="viewAllSkills">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">user</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="viewAboutme" class="com.ID0420FF19OWidya.actions.ProfileAction" method="viewAboutme">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">user</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="viewConnection" class="com.ID0420FF19OWidya.actions.ProfileAction" method="viewAboutme">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">user</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	
+ 	 	
+ 	 	<action name="addSkill" class="com.ID0420FF19OWidya.actions.ProfileAction" method="addSkill">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">skill</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="addEducation" class="com.ID0420FF19OWidya.actions.ProfileAction" method="addEducation">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">education</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="addExperience" class="com.ID0420FF19OWidya.actions.ProfileAction" method="addExperience">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">experience</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="updateEducation" class="com.ID0420FF19OWidya.actions.ProfileAction" method="updateEducation">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">updateResult</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	<action name="updateExperience" class="com.ID0420FF19OWidya.actions.ProfileAction" method="updateExperience">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">updateResult</param>
+ 	 		</result>
+ 	 	</action>
+ 	 	<action name="updateSkill" class="com.ID0420FF19OWidya.actions.ProfileAction" method="updateSkill">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">updateResult</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="updateAboutme" class="com.ID0420FF19OWidya.actions.ProfileAction" method="updateAboutme">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">updateResult</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	<action name="updateConnection" class="com.ID0420FF19OWidya.actions.ProfileAction" method="updateConnection">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">updateResult</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="deleteEducation" class="com.ID0420FF19OWidya.actions.ProfileAction" method="deleteEducation">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">updateResult</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	<action name="deleteExperience" class="com.ID0420FF19OWidya.actions.ProfileAction" method="deleteExperience">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">updateResult</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	<action name="deleteSkill" class="com.ID0420FF19OWidya.actions.ProfileAction" method="deleteSkill">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">updateResult</param>
+ 	 		</result>
+ 	 		<result name="sessionInvalid"></result>
+ 	 	</action>
+ 	 	
+	</package>
+	
+	<package name="getFollow" extends="struts-default, json-default">
+		<interceptors> 
+<!-- 			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/> -->
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"/> 
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="newStack"/>
+ 	 	<action name="searchFollower" class="com.ID0420FF19OWidya.actions.ProfileAction" method="searchFollower">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">followUsers</param>
+ 	 		</result>
+ 	 	</action>
+ 	 	<action name="searchFollowing" class="com.ID0420FF19OWidya.actions.ProfileAction" method="searchFollowing">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">followUsers</param>
+ 	 		</result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="followUser" class="com.ID0420FF19OWidya.actions.ProfileAction" method="followUser">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">followResult</param>
+ 	 		</result>
+ 	 	</action>
+ 	 	
+ 	 	<action name="unfollowUser" class="com.ID0420FF19OWidya.actions.ProfileAction" method="unfollowUser">
+ 	 		<result name="success" type="json">
+ 	 			<param name="root">followResult</param>
+ 	 		</result>
+ 	 	</action>
+	</package>
+	
+	<!-- 	================================ -->	
+	<package name="logout" extends="struts-default">
+
+		<action name="logout" class="com.ID0420FF19OWidya.actions.LogoutAction">
+			<result name="success" type="redirect">home</result>
+		</action>
+	</package>
+
+</struts>
+

@@ -1,0 +1,95 @@
+.jobDetailsDiv{
+    height: 80vh;
+/*    background-color: pink;*/
+    overflow-Y: auto;
+    margin: 1rem 0rem
+}
+#viewJobDetails .modal-body{
+    padding: 1rem;
+}
+
+.jobDetailsDiv::-webkit-scrollbar{
+    width: 0.5rem;
+}
+.jobDetailsDiv > .position, .jobDetailsDiv > .company, .jobDetailsDiv > .location{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jobDetailsDiv .close{
+    position: absolute;
+    right: 0px;
+}
+
+
+.jobDetailsDiv > .position >p {
+    font-size: var(--font-size-large);
+    margin: 0px;
+    font-weight: 600;
+}
+
+.jobDetailsDiv > .company >p {
+    font-size: var(--font-size-medium);
+    font-weight: 600;
+}
+
+.date-place-hours-deadline >div{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem 0px;
+
+    
+}
+.date-place-hours-deadline{
+    background-color: var(--secondary-color-light);
+    margin-bottom: 1rem;
+}
+
+.date-place-hours-deadline >div >p{
+    margin: 0;
+}
+
+.hours-place{
+/*    background-color: pink; */
+}
+
+.hours-place >div{
+/*    background-color: pink; */
+    padding: 0 1rem;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+}
+
+.hours-place >div>p{
+/*    background-color: pink; */
+    padding: 0 0.5rem;
+    margin:0
+    
+
+}
+
+.jobDetailsDiv i{
+    padding-right: 0.5rem;
+}
+
+#subdetail-header{
+    font-weight: 700;
+}
+
+.applyBtn{
+    width: 100%;
+}
+
+.hasApply{
+	display:none;
+	width:100%;
+    text-align:center;
+    font-size: var(--font-size-medium);
+}
+.hasApply > i{
+    color: var(--primary-color);
+}

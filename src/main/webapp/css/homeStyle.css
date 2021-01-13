@@ -1,0 +1,248 @@
+:root{
+    --icon-font-size: 17px;
+    --font-size-default: 12.5px;
+    --font-color-default:#155263;
+    --font-color-light: white;
+    --primary-color: #29cdb5;
+    --primary-color-light: #9bf4d5;
+    --primary-color-dark: #009f9d;
+    --border-default: 2px solid #e8e7e7;
+    --border-input-default: 2px solid #e8e8e8;
+    --border-input-active: 2px solid #29cdb5;
+    --border-input-error: 2px solid red;
+}
+
+body{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.row{
+    margin: 0px;
+}
+
+.col-12{
+    padding: 0px;
+}
+.outercontainer{
+    width: 90%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+/*    background-color: aliceblue;*/
+}
+.innercontainer{
+/*    background-color: yellow;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.right-div{
+/*    background-color: green;*/
+    height: 95vh;
+}
+
+.right-div-small{
+    min-height: 30vh;
+}
+
+.logo-div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+/*    background-color: aliceblue;*/
+
+}
+
+.logo-div-small{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+/*    background-color: aliceblue;*/
+
+}
+.logoImgDiv{
+    width: 100%;
+/*    background-color: blue;*/
+    padding: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logoImgDiv-small{
+    width: 100%;
+/*    background-color: blue;*/
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center
+}
+
+.logoImgDiv .logo{
+    width: 300px;
+    height: auto;
+/*    background-color: blue;*/
+}
+
+.logoImgDiv-small .logo-small{
+    width: 100px;
+    height: auto;
+/*    background-color: blue;*/
+}
+
+.buttonDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    margin: 10px 10px;
+    max-width: 9rem;
+    min-width: 9rem;
+    background-color: white;
+    border: var(--border-input-active);
+    color: var(--primary-color-dark);
+}
+
+.btn:hover{
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn.active{
+    background-color: var(--primary-color-dark);
+    color: white;
+}
+
+
+
+.input-div{
+/*    background-color: green;*/
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+}
+.form-div{
+/*    background-color: aliceblue;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.form-div form{
+/*    background-color: yellow;*/
+    width: 100%;
+    max-width: 25rem;
+    padding: 2rem 1rem;
+    border: var(--border-default);
+    box-shadow: 2px 2px #e0e0e0; 
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 300px;
+}
+
+.form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-div form .form-group:last-child{
+    margin-top: auto;
+}
+
+.form-control{
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    
+}
+
+.form-div form input:not([type=submit]){
+    height: 35px;
+}
+
+.form-div form input:focus{
+    background-color: none;
+    border-bottom: var(--border-input-default);
+
+}
+
+.helper-text{
+    height: 10px;
+}
+
+.forgetpasswordlink{
+    font-size: 12px;
+}
+
+
+.submitBtn{
+    margin-top: 10px;
+}
+
+.errorMessage {
+	text-align: center;
+	color: red;
+	font-weight: bold;
+	padding: 0px;
+	margin-top: 20px;
+	border-radius: 10px;
+	background-color: white;
+	height: 30px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	align-self: center;
+	font-size: 0.8em;
+}
+
+.footer{
+    margin:auto;
+    font-size: var(--font-size-default);
+/*    background-color: blue;*/
+}
+
+.form-control:focus:not([type=submit]), .form-control:active:not([type=submit])
+{
+    border: none;
+}
+
+.form-control:not([type=submit]) {
+    border: none;
+}
+.alert{
+  position:fixed;
+  top: 35%;
+  z-index:999;
+  left: 50%;
+  transform:translate(-50%);
+  width: 30rem;
+	display:none;
+	text-align:center;
+}
+
+.spinner-border{
+	display:none;
+}
+
+.modal-footer{
+	display:flex;
+	justify-content:center;
+	
+}

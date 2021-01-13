@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+
+.deleted-item{
+	background-color: var(--secondary-color);
+}
+
+.deletePermanentBtn{
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color:transparent;
+    border:none;
+}
+
+.deletePermanentBtn i{
+    color:var(--secondary-color-light);
+}

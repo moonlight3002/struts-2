@@ -1,0 +1,152 @@
+.newItem{
+	display:none;
+}
+
+.content-wrapper{
+    padding: 0;
+    position:relative;
+}
+
+.hireForm{
+    padding: 0;
+/*    background-color: pink; */
+    min-height: 80vh;
+    position:relative;
+/*     border-bottom: 5px solid black; */
+    padding: 1rem 0 5rem 0; 
+}
+
+.form-Upper{
+/*    background-color: yellow;*/
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.form-right, .form-left{
+    padding: 0;
+/*    background-color: purple;*/
+    max-width: 38rem;
+    margin: 0 3rem; 
+}
+
+.section-1, .section-3{
+    border-bottom: var(--border-default);
+}
+
+.form-Bottom{
+/*     background-color: aliceblue; */
+    height: 3rem;
+    position: absolute;
+    bottom:0px;
+}
+
+.form-item{
+    margin: 0.5rem 0;
+    padding: 0;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.form-label{
+    padding: 0;
+    font-weight: 600;
+}
+
+.form-input-text{
+    height: 1.5rem;
+}
+
+.form-input-select{
+    margin-right: 1rem;
+    height: 1.5rem;
+    font-size: var(--font-size-default);
+    padding: 0 0.2rem;
+}
+
+.form-check{
+    display: flex;
+    align-items: center;
+}
+
+.form-input-radio{
+    display: flex;
+    align-items: center;
+    margin-top:0;
+}
+
+.form-input-multiple{
+    font-size: var(--font-size-default);
+    padding: 0 0.2rem;
+}
+
+.form-input-question{
+    margin-bottom: 1rem;
+}
+
+.form-label-question{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.addQuestionBtn{
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border-radius: 100%;
+    color: var(--secondary-color);
+}
+
+.addQuestionBtn:hover{
+    background-color: var(--font-color-default);   
+    color: white;
+}
+
+.questionDiv-item{
+    display: flex;
+}
+
+.deleteQuestionBtn{
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0;
+    color: var(--secondary-color);
+}
+
+.submitjobpostBtn{
+    height: 2rem;
+    width: 10rem;
+    background-color: var(--primary-color-dark);
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-weight: 600;
+    
+}
+
+.submitjobpostBtn:hover{
+    background-color: var(--primary-color-light);
+    color: var(--font-color-default);
+    
+}
+
+.form-Bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.dateTimeInput{
+    max-width: 12rem;
+}
+
+textarea.form-control, .form-input-text{
+	font-size: var(--font-size-default);
+}
+

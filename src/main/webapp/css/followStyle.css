@@ -1,0 +1,93 @@
+
+.profile-follow-upper{
+/*    background-color: pink;*/
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-bottom: var(--border-default);
+}
+
+
+.follow-search{
+    
+}
+
+
+.profile-follow-bottom{
+/*    background-color: aqua;*/
+}
+
+
+.follow-items{
+/*    background-color: green;*/
+}
+
+.follow-item{
+/*    background-color: red;*/
+    height: 10rem;
+}
+
+.follow-item a{
+    width: 100%;
+    height: 100%;
+    background: blue;
+}
+
+.follow-item-top, .follow-item-bottom{
+    display: flex;
+    justify-content: center;
+}
+
+.follow-item-top{
+    height: 60%;
+    align-items: flex-end;
+}
+
+.follow-item-top img{
+    height: 5rem;
+    width: 5rem;
+    background-color: white;
+    border-radius: 100%;
+    border: 2px solid var(--primary-color-dark);
+}
+
+
+
+.follow-item-bottom{
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.follow-name{
+    font-size: var(--font-size-medium);
+    font-weight: 700;
+    color:var(--font-color-default);
+    text-align:center;
+}
+
+.follow-follower{
+    
+}
+
+.seemore, .nomore{
+	position: relative;
+	margin: auto;
+	bottom: 0px;
+	padding: 20px 0px;
+}
+
+.spinner-grow{
+    width: 5px;
+    height: 5px;
+    margin:2px;
+}
+
+
+.nomore{
+	display:none;
+	color: var(--secondary-color);
+}
